@@ -173,7 +173,7 @@ func Decompress(in []byte) ([]byte, error) {
 				return nil, fmt.Errorf("invalid")
 			}
 			l := int(in[i]) + 1
-			if i++; i+l >= len(in) {
+			if i++; i+l > len(in) {
 				return nil, fmt.Errorf("invalid")
 
 			}
