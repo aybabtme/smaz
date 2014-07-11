@@ -149,12 +149,12 @@ func Compress(in []byte) ([]byte, error) {
 			i++
 		}
 		// Perform a verbatim flush if needed
-		if len(v) == 256 || len(v) > 0 && i == len(in)-1 {
+		if len(v) == 256 || len(v) > 0 && i == len(in) {
 			v, out = flushVerbatim(v, out)
 		}
 	}
 	if len(v) > 0 {
-		out, _ = flushVerbatim(v, out)
+		_, out = flushVerbatim(v, out)
 	}
 	return out, nil
 }
